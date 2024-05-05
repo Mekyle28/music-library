@@ -23,11 +23,11 @@ const library = {
              }
 };
 
-objPlaylist = library.playlists;
-console.log(objPlaylist);
+playlistObj = library.playlists;
+console.log(playlistObj);
 
-objTracks = library.tracks;
-console.log(objTracks);
+tracksObj = library.tracks;
+console.log(tracksObj);
 
 /////////////////////////////
 // FUNCTIONS TO IMPLEMENT:
@@ -36,10 +36,18 @@ console.log(objTracks);
 // prints a list of all playlists, in the form:
 // p01: Coding Music - 2 tracks
 // p02: Other Playlist - 1 tracks
-const printPlaylists = function() {
-
-    // return `${playlist number}: ${playlistName} ${number of tracks}`
+const printPlaylists = function(obj) {
+  let playlistName = "";
+  let numOfTracks = 0;
+  let results = "";
+    for (let playlistNum in obj) {
+      playlistName = obj[playlistNum]["name"];
+      numOfTracks = obj[playlistNum]["tracks"].length;
+      console.log(`${playlistNum}: ${playlistName} - ${numOfTracks} tracks`)
+    }
 }
+printPlaylists(playlistObj);
+    // return `${playlist number}: ${playlistName} ${number of tracks}`
 
 
 // prints a list of all tracks, using the following format:
