@@ -23,6 +23,12 @@ const library = {
              }
 };
 
+objPlaylist = library.playlists;
+console.log(objPlaylist);
+
+objTracks = library.tracks;
+console.log(objTracks);
+
 /////////////////////////////
 // FUNCTIONS TO IMPLEMENT:
 /////////////////////////////
@@ -32,6 +38,7 @@ const library = {
 // p02: Other Playlist - 1 tracks
 const printPlaylists = function() {
 
+    // return `${playlist number}: ${playlistName} ${number of tracks}`
 }
 
 
