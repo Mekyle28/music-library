@@ -31,10 +31,13 @@ const assertEqual = function(actual, expected) {
   };
 
 playlistObj = library.playlists;
-console.log(playlistObj);
+// console.log(playlistObj);
 
 tracksObj = library.tracks;
-console.log(tracksObj);
+// console.log(tracksObj);
+
+
+
 
 /////////////////////////////
 // FUNCTIONS TO IMPLEMENT:
@@ -88,10 +91,7 @@ printPlaylists(playlistObj);
 // t03: Four Thirty-Three by John Cage (Woodstock 1952)
 
 const printTracks = function(obj) {
-    let trackName = "";
-    let artist = "";
-    let albumName = "";
-
+  
       for (let trackNum in obj) {
         trackName = obj[trackNum]["name"];
         artistName = obj[trackNum]["artist"];
@@ -106,47 +106,37 @@ const printTracks = function(obj) {
 // p01: Coding Music - 2 tracks
 // t01: Code Monkey by Jonathan Coulton (Thing a Week Three)
 // t02: Model View Controller by James Dempsey (WWDC 2003)
-const printPlaylist = function(playlistId) {
-trackArr = playlistObj[playlistId]["tracks"];
 
+
+
+
+
+const printPlaylist = function(playlistId, libObj) {
+trackArr = libObj["playlists"][playlistId]["tracks"];
+// print playlist info
+playlistName = libObj["playlists"][playlistId]["name"];
+numOfTracks = libObj["playlists"][playlistId]["tracks"].length;
+console.log(`${playlistId}: ${playlistName} - ${numOfTracks} tracks`);
+//loop through track array to get song info
+for (let trackNum of trackArr) {
+    trackName = libObj["tracks"][trackNum]["name"];
+    artistName = libObj["tracks"][trackNum]["artist"];
+    albumName = libObj["tracks"][trackNum]["album"];
+    console.log(`${trackNum}: ${trackName} by ${artistName} (${albumName}) `)
+  }
 }
 
-printPlaylist("p01");
-
-// const library = {
-//     tracks: { t01: { id: "t01",
-//                      name: "Code Monkey",
-//                      artist: "Jonathan Coulton",
-//                      album: "Thing a Week Three" },
-//               t02: { id: "t02",
-//                      name: "Model View Controller",
-//                      artist: "James Dempsey",
-//                      album: "WWDC 2003"},
-//               t03: { id: "t03",
-//                      name: "Four Thirty-Three",
-//                      artist: "John Cage",
-//                      album: "Woodstock 1952"}
-//             },
-//     playlists: { p01: { id: "p01",
-//                         name: "Coding Music",
-//                         tracks: ["t01", "t02"]
-//                       },
-//                  p02: { id: "p02",
-//                         name: "Other Playlist",
-//                         tracks: ["t03"]
-//                       }
-//                }
-//   };
-  
-
+printPlaylist("p01", library);
 
 
 
 // adds an existing track to an existing playlist
 const addTrackToPlaylist = function(trackId, playlistId) {
-
+addTrackObj = libObj["tracks"][trackId]
+console.log(addTrackObj);
 }
 
+addTrackToPlaylist()
 
 // generates a unique id
 // (already implemented: use this for addTrack and addPlaylist)
