@@ -23,6 +23,13 @@ const library = {
              }
 };
 
+const assertEqual = function(actual, expected) {
+    if (actual === expected) {
+      return console.log(`✅✅✅ Assertion Passed: ${actual} === ${expected}`);
+    }
+      return console.log(`🔴🔴🔴Assertion Failed: ${actual} !== ${expected}`);
+  };
+
 playlistObj = library.playlists;
 console.log(playlistObj);
 
@@ -36,6 +43,8 @@ console.log(tracksObj);
 // prints a list of all playlists, in the form:
 // p01: Coding Music - 2 tracks
 // p02: Other Playlist - 1 tracks
+
+
 const printPlaylists = function(obj) {
   let playlistName = "";
   let numOfTracks = 0;
@@ -46,8 +55,20 @@ const printPlaylists = function(obj) {
       console.log(`${playlistNum}: ${playlistName} - ${numOfTracks} tracks`)
     }
 }
-printPlaylists(playlistObj);
-    // return `${playlist number}: ${playlistName} ${number of tracks}`
+// const printPlaylists = function(obj) {
+//     let playlistName = "";
+//     let numOfTracks = 0;
+//     let results = "";
+//       for (let playlistNum in obj) {
+//         playlistName = obj[playlistNum]["name"];
+//         numOfTracks = obj[playlistNum]["tracks"].length;
+//         results += (`${playlistNum}: ${playlistName} - ${numOfTracks} tracks `);
+//       }
+//       console.log(results);
+//       return results;
+//   }
+// assertEqual(printPlaylists(playlistObj), "p01: Coding Music - 2 tracks p02: Other Playlist - 1 tracks ");
+
 
 
 // prints a list of all tracks, using the following format:
