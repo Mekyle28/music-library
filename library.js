@@ -40,10 +40,10 @@ const assertEqual = function (actual, expected) {
   return console.log(`🔴🔴🔴Assertion Failed: ${actual} !== ${expected}`);
 };
 
-playlistObj = library.playlists;
+const playlistObj = library.playlists;
 // console.log(playlistObj);
 
-tracksObj = library.tracks;
+const tracksObj = library.tracks;
 // console.log(tracksObj);
 
 
@@ -71,13 +71,13 @@ tracksObj = library.tracks;
 
 const printPlaylists = function(obj) {
   for (let playlistNum in obj) {
-    playlistName = obj[playlistNum]["name"];
-    numOfTracks = obj[playlistNum]["tracks"].length;
-    console.log(`${playlistNum}: ${obj[playlistNum]["name"]} - ${obj[playlistNum]["tracks"].length} tracks`);
+    const playlistName = obj.playlists[playlistNum]["name"];
+    const numOfTracks = obj.tracks[playlistNum]["tracks"].length;
+    console.log(`${playlistNum}: ${playlistName} - ${numOfTracks} tracks`);
   }
-}
+};
 
-printPlaylists(playlistObj);
+printPlaylists(library);
 
 // const printPlaylists = function(obj) {
 //     let playlistName = "";
@@ -100,17 +100,17 @@ printPlaylists(playlistObj);
 // t02: Model View Controller by James Dempsey (WWDC 2003)
 // t03: Four Thirty-Three by John Cage (Woodstock 1952)
 
-const printTracks = function (obj) {
+const printTracks = function(obj) {
 
   for (let trackNum in obj) {
-    trackName = obj[trackNum]["name"];
-    artistName = obj[trackNum]["artist"];
-    albumName = obj[trackNum]["album"]
-    console.log(`${trackNum}: ${trackName} by ${artistName} (${albumName}) `)
+    const trackName = obj.tracks[trackNum]["name"];
+    const artistName = obj.tracks[trackNum]["artist"];
+    const albumName = obj.tracks[trackNum]["album"];
+    console.log(`${trackNum}: ${trackName} by ${artistName} (${albumName}) `);
   }
 };
 
-printTracks(tracksObj);
+printTracks(library);
 
 // prints a list of tracks for a given playlist, using the following format:
 // p01: Coding Music - 2 tracks
@@ -122,19 +122,19 @@ printTracks(tracksObj);
 
 
 const printPlaylist = function(playlistId, libObj) {
-  trackArr = libObj["playlists"][playlistId]["tracks"];
+  const trackArr = libObj["playlists"][playlistId]["tracks"];
   // print playlist info
-  playlistName = libObj["playlists"][playlistId]["name"];
-  numOfTracks = libObj["playlists"][playlistId]["tracks"].length;
+  const playlistName = libObj["playlists"][playlistId]["name"];
+  const numOfTracks = libObj["playlists"][playlistId]["tracks"].length;
   console.log(`${playlistId}: ${playlistName} - ${numOfTracks} tracks`);
   //loop through track array to get song info
   for (let trackNum of trackArr) {
-    trackName = libObj["tracks"][trackNum]["name"];
-    artistName = libObj["tracks"][trackNum]["artist"];
-    albumName = libObj["tracks"][trackNum]["album"];
-    console.log(`${trackNum}: ${trackName} by ${artistName} (${albumName}) `)
+    const trackName = libObj["tracks"][trackNum]["name"];
+    const artistName = libObj["tracks"][trackNum]["artist"];
+    const albumName = libObj["tracks"][trackNum]["album"];
+    console.log(`${trackNum}: ${trackName} by ${artistName} (${albumName}) `);
   }
-}
+};
 
 printPlaylist("p01", library);
 
@@ -149,7 +149,7 @@ addTrackToPlaylist("t03", "p01", library);
 
 // generates a unique id
 // (already implemented: use this for addTrack and addPlaylist)
-const generateUid = function () {
+const generateUid = function() {
   return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
 };
 
@@ -172,7 +172,7 @@ addTrack('bob', 'bobbbb', 'yeabob', library);
 
 
 // adds a playlist to the library
-const addPlaylist = function (name, libObj) {
+const addPlaylist = function(name, libObj) {
   const newplaylistNum = generateUid();
   libObj.playlists[newplaylistNum] = {
     id: newplaylistNum,
@@ -186,8 +186,8 @@ console.log("add playlist", addPlaylist('coding tunes', library));
 // STRETCH:
 // given a query string string, prints a list of tracks
 // where the name, artist or album contains the query string (case insensitive)
-// tip: use "string".search("tri") 
+// tip: use "string".search("tri")
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/search
-const printSearchResults = function (query) {
+const printSearchResults = function(query) {
 
-}
+};
